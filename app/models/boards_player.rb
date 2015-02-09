@@ -1,6 +1,6 @@
 class BoardsPlayer < ActiveRecord::Base
 
-  belongs_to :boards
-  belongs_to :players
-  
+  belongs_to :board
+  belongs_to :player
+
 end

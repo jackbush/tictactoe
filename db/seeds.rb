@@ -18,4 +18,5 @@ b1 = Board.create(game_id: g1.id)
 p1 = Player.create(username: "test1")
 p2 = Player.create(username: "test2")
 
-bp1 = BoardsPlayer.create(board_id: b1.id, winner_id: p1.id, loser_id: p2.id)
+BoardsPlayer.create(board_id: b1.id, player_id: p1.id, winner: true)
+BoardsPlayer.create(board_id: b1.id, player_id: p2.id, winner: false)
