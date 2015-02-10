@@ -1,16 +1,16 @@
-class BoardsController < ApplicationController
+class TicTacToeBoardsController < ApplicationController
 
   def index
     #how to render a board vs computer here
-    @board = Board.new
+    @board = TicTacToeBoard.new
   end
 
   def show
-    @board = Board.find(params[:id])
+    @board = TicTacToeBoard.find(params[:id])
   end
 
   def new
-    @board = Board.new
+    @board = TicTacToeBoard.new
     # game goes here
     #can add players as arguments here, if model is modified
     #'finished' as a boolean value?

@@ -1,7 +1,7 @@
 class Player < ActiveRecord::Base
 
-  has_many :boards_players
-  has_many :boards, through: :boards_players
+  has_many :tic_tac_toe_moves
+  has_many :tic_tac_toe_boards, through: :tic_tac_toe_moves
 
   def admin?
     self.role == 'admin'

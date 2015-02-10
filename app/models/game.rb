@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
 
-  has_many :boards
+  has_many :tic_tac_toe_boards
   
 end

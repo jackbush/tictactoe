@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   resources :games
-  resources :boards
+  resources :tic_tac_toe_boards
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'boards#index'
+  root 'tic_tac_toe_boards#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
