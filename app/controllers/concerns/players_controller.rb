@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  def index
+  def leaderboard
     @players = Player.all.order('games_won')
   end
 end

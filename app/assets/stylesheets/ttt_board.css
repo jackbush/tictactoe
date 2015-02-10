@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+.ttt-board {
+  margin: 0 auto;
+  width: 640px;
+  height: 640px;
+  background: black;
+  z-index: 0;
+}
+.ttt-square {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  background: white;
+  z-index: 10;
+}
