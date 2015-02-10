@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210112617) do
+ActiveRecord::Schema.define(version: 20150210172424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,21 +26,19 @@ ActiveRecord::Schema.define(version: 20150210112617) do
   create_table "players", force: :cascade do |t|
     t.string   "username"
     t.string   "avatar"
-    t.integer  "games_played"
-    t.integer  "games_won"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "games_played", default: 0
+    t.integer  "games_won",    default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "tic_tac_toe_boards", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "p1_id"
     t.integer  "p2_id"
-    t.integer  "p1_position"
-    t.integer  "p2_position"
-    t.boolean  "finished"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "finished",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "tic_tac_toe_moves", force: :cascade do |t|

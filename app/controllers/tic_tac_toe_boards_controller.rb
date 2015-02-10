@@ -1,8 +1,8 @@
 class TicTacToeBoardsController < ApplicationController
 
   def index
-    #how to render a board vs computer here
-    @board = TicTacToeBoard.new
+    #board of guest vs computer here
+    @board = TicTacToeBoard.new(game_id:)
   end
 
   def show
@@ -10,7 +10,7 @@ class TicTacToeBoardsController < ApplicationController
   end
 
   def new
-    @board = TicTacToeBoard.new
+    @board = TicTacToeBoard.new()
     # game goes here
     #can add players as arguments here, if model is modified
     #'finished' as a boolean value?
