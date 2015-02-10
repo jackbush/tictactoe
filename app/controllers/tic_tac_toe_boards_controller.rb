@@ -5,8 +5,7 @@ class TicTacToeBoardsController < ApplicationController
   end
 
   def new
-    @game = TicTacToeBoard.new()
-    # game between players initialized here
+    # @game = TicTacToeBoard.new(p1_id = current_user)
   end
 
   def create
@@ -23,8 +22,7 @@ class TicTacToeBoardsController < ApplicationController
   def update
     game = TicTacToeBoard.find(params[:id])
     square = params[:commit].to_i
-    game.board = TicTacToeBoard.board_turn(game, square)
-    game.p1_squares << square
+    game = TicTacToeBoard.play(game, square)
     game.save
     redirect_to edit_tic_tac_toe_board_path(game)
   end

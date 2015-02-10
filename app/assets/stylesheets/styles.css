@@ -16,6 +16,7 @@ p {
   z-index: 0;
 }
 .ttt-square {
+  padding: 100px;
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -23,8 +24,10 @@ p {
   background: white;
   z-index: 10;
 }
-button {
-  display: inline-block;
+input {
+  display: inline;
+  float: left;
+  border: 0;
   width: 200px;
   height: 200px;
   margin: 5px;
