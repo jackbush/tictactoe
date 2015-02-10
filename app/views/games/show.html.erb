@@ -1,1 +1,14 @@
-<h2>show game</h2>
+<h2><%= @game.name %></h2>
+
+<h3>Instructions:</h3>
+
+<p><%= @game.instructions %></p>
+
+<h3>Leaderboard:</h3>
+
+<p>[leaderboard goes here]</p>
+
+<div class="page-nav">
+  <%= link_to('BACK', games_path) %>
+  <%= link_to('EDIT', edit_game_path) %>
+</div>

@@ -1,1 +1,6 @@
-<h2>all games</h2>
+<h2>All Games</h2>
+
+<% @games.each do |game| %>
+  <h3><%= link_to(game.name, game_path(game)) %></h3>
+  <p><%= game.instructions %></p>
+<% end %>

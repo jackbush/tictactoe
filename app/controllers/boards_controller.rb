@@ -1,7 +1,8 @@
 class BoardsController < ApplicationController
 
   def index
-    @boards = Board.all
+    #how to render a board vs computer here
+    @board = Board.new
   end
 
   def show
@@ -10,26 +11,19 @@ class BoardsController < ApplicationController
 
   def new
     @board = Board.new
+    # game goes here
+    #can add players as arguments here, if model is modified
+    #'finished' as a boolean value?
+    #player one = current user
+    #player two can take form of other user or computer, params?
   end
 
   def create
-    Board.create(board_params)
-    redirect_to boards_path
-  end
-
-  def edit
-    @board = Board.find(params[:id])
+    #board can be kept in memory, only thing to be saved is a record for leaderboard/scoring
   end
 
   def update
-    @board = Board.find(params[:id])
-    @board.update(board_params)
-    redirect_to boards_path
-  end
-
-  def destroy
-    Board.find(params[:id]).destroy
-    redirect_to boards_path
+    #is it necessary to put moves through here?
   end
 
   private

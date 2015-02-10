@@ -11,7 +11,7 @@ Board.delete_all
 BoardsPlayer.delete_all
 Player.delete_all
 
-g1 = Game.create(name: "Tic Tac Toe")
+g1 = Game.create(name: "Tic Tac Toe", instructions: "on a 3x3 grid, get three symbols in a row.")
 
 b1 = Board.create(game_id: g1.id)
 

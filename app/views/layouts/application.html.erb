@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tictactoe</title>
+  <title>TicTacToe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <nav>
+    <h1><%= link_to('TicTacToe', root_path) %></h1>
+    <ul class="nav-links">
+      <li class="nav-links-item"><%= link_to('ALL GAMES', games_path) %></li>
+    </ul>
+  </nav>
 <%= yield %>
 
 </body>
