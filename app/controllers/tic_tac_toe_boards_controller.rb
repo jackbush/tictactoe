@@ -1,12 +1,7 @@
 class TicTacToeBoardsController < ApplicationController
 
   def index
-    #board of guest vs computer here
-    @board = TicTacToeBoard.new(game_id:)
-  end
-
-  def show
-    @board = TicTacToeBoard.find(params[:id])
+    @board = TicTacToeBoard.new()
   end
 
   def new
@@ -20,10 +15,14 @@ class TicTacToeBoardsController < ApplicationController
 
   def create
     #board can be kept in memory, only thing to be saved is a record for leaderboard/scoring
-  end
+  end  
 
   def update
     #is it necessary to put moves through here?
+  end
+
+  def show
+    @board = TicTacToeBoard.find(params[:id])
   end
 
   private
