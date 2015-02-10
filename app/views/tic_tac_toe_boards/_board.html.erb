@@ -7,7 +7,7 @@
       <% else %>
         <%= form_for(@game) do |f| %>
           <%= f.hidden_field :service, value: square %>
-          <%= f.submit %>
+          <%= f.submit square %>
         <% end %>
     <% end %>
   <% end %>

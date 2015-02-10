@@ -4,9 +4,9 @@ class TicTacToeBoard < ActiveRecord::Base
 
   # has_many :players
 
-  def self.register_turn(game)
-    binding.pry
-    puts 'debug'
+  def self.board_turn(game, square)
+    game.board[square] = 'X'
+    game.board
   end
 
 end

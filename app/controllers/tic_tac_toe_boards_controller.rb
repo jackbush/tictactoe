@@ -21,12 +21,12 @@ class TicTacToeBoardsController < ApplicationController
   end
 
   def update
-    @game = TicTacToeBoard.find(params[:id])
-
-    TicTacToeBoard.register_turn(game)
-
-
+    game = TicTacToeBoard.find(params[:id])
+    square = params[:commit].to_i
+    game.board = TicTacToeBoard.board_turn(game, square)
+    game.p1_squares << square
     game.save
+    redirect_to edit_tic_tac_toe_board_path(game)
   end
 
   def show
