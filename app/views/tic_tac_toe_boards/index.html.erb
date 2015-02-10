@@ -1,4 +1,6 @@
 <h2>Tic Tac Toe</h2>
 <h3>Play the computer below, or sign in to play for points against other users.</h3>
 
-<%= render 'board' %>
+<%= form_for(@game) do |f| %>
+  <%= f.submit %>
+<% end %>

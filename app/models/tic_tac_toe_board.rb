@@ -4,6 +4,9 @@ class TicTacToeBoard < ActiveRecord::Base
 
   # has_many :players
 
-  accepts_nested_attributes_for :tic_tac_toe_moves, allow_destroy: true
+  def self.register_turn(game)
+    binding.pry
+    puts 'debug'
+  end
 
 end

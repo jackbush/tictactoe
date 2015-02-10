@@ -1,12 +1,27 @@
 * {
   box-sizing: border-box;
 }
+p {
+  color:white;
+}
+.main-container {
+  width: 640px;
+  margin: 0 auto;
+}
 .ttt-board {
   margin: 0 auto;
   width: 640px;
   height: 640px;
   background: black;
   z-index: 0;
+}
+.ttt-square {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  background: white;
+  z-index: 10;
 }
 button {
   display: inline-block;

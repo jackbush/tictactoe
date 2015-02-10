@@ -1,33 +1,36 @@
 class TicTacToeBoardsController < ApplicationController
 
   def index
-    @board = TicTacToeBoard.new()
+    @game = TicTacToeBoard.new()
   end
 
   def new
-    @board = TicTacToeBoard.new()
-    # game goes here
-    #can add players as arguments here, if model is modified
-    #'finished' as a boolean value?
-    #player one = current user
-    #player two can take form of other user or computer, params?
+    @game = TicTacToeBoard.new()
+    # game between players initialized here
   end
 
   def create
-    #board can be kept in memory, only thing to be saved is a record for leaderboard/scoring
-  end  
+    game = TicTacToeBoard.create
+    game.board << 0 << 1 << 2 << 3 << 4 << 5 << 6 << 7 << 8
+    game.save
+    redirect_to edit_tic_tac_toe_board_path(game)
+  end
+
+  def edit
+    @game = TicTacToeBoard.find(params[:id])
+  end
 
   def update
-    #is it necessary to put moves through here?
+    @game = TicTacToeBoard.find(params[:id])
+
+    TicTacToeBoard.register_turn(game)
+
+
+    game.save
   end
 
   def show
     @board = TicTacToeBoard.find(params[:id])
-  end
-
-  private
-  def board_params
-    params.require(:board).permit(:game_id, {boards_players_attributes: [:player_id, :winner]})
   end
   
 end
