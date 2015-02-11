@@ -25,35 +25,39 @@ class TicTacToeBoard < ActiveRecord::Base
   end
 
   def self.check_win(player_squares)
-    results = Array.new
+    result = Array.new
     @winning_combinations.each do |win|
-      results << (win - player_squares).empty?
+      result << (win - player_squares).empty?
     end
-    results.include? true
+    result.include? true
+  end
+
+  def self.check_draw(board)
+    result = Array.new
+    result << board
+    result.flatten!
+    result.delete('x')
+    result.delete('o')
+    result.empty?
   end
 
   def self.play(game, user_square)
     game.board = self.board_update_x(game, user_square)
     game.p1_squares << user_square.to_s
-    game.finished = self.check_win(game.p1_squares)
+
+    game.finished = self.check_win(game.p1_squares) || self.check_draw(game.board)
     return game if game.finished == true
 
-      #count if turn < 8 or if board contains numbers
-      # if p2_id == nil
-        comp_square = self.computer_move(game)
-        game.board = self.board_update_o(game, comp_square)
-        game.p2_squares << comp_square.to_s
-        game.finished = self.check_win(game.p2_squares)
-        return game if game.finished == true
-      # else
-        #wait for p2 move
-
-      #check for winner
-      #check if end
-      game
+    # if p2_id == nil
+      comp_square = self.computer_move(game)
+      game.board = self.board_update_o(game, comp_square)
+      game.p2_squares << comp_square.to_s
     # else
-    #else
-    #draw
+      #wait for p2 move
+    # end
+
+    game.finished = self.check_win(game.p2_squares) || self.check_draw(game.board)
+    game
   end
 
 end
