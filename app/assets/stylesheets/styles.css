@@ -5,32 +5,23 @@ p {
   color: black;
 }
 .main-container {
-  width: 700px;
+  width: 640px;
   margin: 0 auto;
 }
 .ttt-board {
   margin: 0 auto;
-  width: 700px;
-  height: 700px;
+  width: 630px;
+  height: 630px;
   background: black;
   z-index: 0;
 }
 .ttt-square {
   padding: 100px;
-  display: inline-block;
-  width: 200px;
-  height: 200px;
-  margin: 5px;
-  background: white;
-  z-index: 10;
-}
-input {
-  display: inline;
   float: left;
-  border: 0;
   width: 200px;
   height: 200px;
   margin: 5px;
+  border: 0;
   background: white;
   z-index: 10;
 }

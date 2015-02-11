@@ -4,23 +4,31 @@ class TicTacToeBoard < ActiveRecord::Base
 
   # has_many :players
 
+  @winning_combinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+
   def self.board_update_x(game, square)
-    game.board[square] = 'X'
+    game.board[square] = 'x'
     game.board
   end
 
   def self.board_update_o(game, square)
-    game.board[square] = 'O'
+    game.board[square] = 'o'
     game.board
   end
 
   def self.computer_move(game)
     available_squares = Array.new
     available_squares << game.board
-    available_squares.flatten!
-    available_squares.delete('X')
-    available_squares.delete('O')
+    available_squares.flatten!.delete('x').delete('o')
     square = available_squares.sample.to_i
+  end
+
+  def check_win(player_squares)
+    results = Array.new
+    @winning_combinations.each do |win|
+      results << (player_squares - win).empty?
+    end
+    results.include? true
   end
 
   def self.play(game, user_square)
