@@ -5,6 +5,15 @@ class TicTacToeBoard < ActiveRecord::Base
 
   @winning_combinations = [['0','1','2'],['3','4','5'],['6','7','8'],['0','3','6'],['1','4','7'],['2','5','8'],['0','4','8'],['2','4','6']]
 
+  def self.computer_move(game)
+    available_squares = Array.new
+    available_squares << game.board
+    available_squares.flatten!
+    available_squares.delete('x')
+    available_squares.delete('o')
+    move = available_squares.sample.to_i
+  end
+
   def self.board_update_x(game, square)
     game.board[square] = 'x'
     game.board
@@ -13,15 +22,6 @@ class TicTacToeBoard < ActiveRecord::Base
   def self.board_update_o(game, square)
     game.board[square] = 'o'
     game.board
-  end
-
-  def self.computer_move(game)
-    available_squares = Array.new
-    available_squares << game.board
-    available_squares.flatten!
-    available_squares.delete('x')
-    available_squares.delete('o')
-    move = available_squares.sample.to_i
   end
 
   def self.check_win(player_squares)
@@ -42,7 +42,7 @@ class TicTacToeBoard < ActiveRecord::Base
       # if p2_id == nil
         comp_square = self.computer_move(game)
         game.board = self.board_update_o(game, comp_square)
-        game.p2_squares << comp_square
+        game.p2_squares << comp_square.to_s
         game.finished = self.check_win(game.p2_squares)
         return game if game.finished == true
       # else
