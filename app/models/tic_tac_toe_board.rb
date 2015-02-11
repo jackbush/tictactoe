@@ -24,16 +24,19 @@ class TicTacToeBoard < ActiveRecord::Base
   end
 
   def self.play(game, user_square)
-    # binding.pry
     game.board = self.board_update_x(game, user_square)
     game.p1_squares << user_square
     #check for winner
-    #count if turn < 8
-    #if board contains numbers
+    #count if turn < 8 or if board contains numbers
+    if p2_id == nil
       comp_square = self.computer_move(game)
       game.board = self.board_update_o(game, comp_square)
       game.p2_squares << comp_square
+    # else
+      #wait for p2 move
+    end
       #check for winner
+      #check if end
       game
     #else
     #draw
