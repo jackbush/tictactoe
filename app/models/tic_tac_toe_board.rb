@@ -15,7 +15,9 @@ class TicTacToeBoard < ActiveRecord::Base
   end
 
   def self.computer_move(game)
-    a = game.board
+    a = Array.new
+    a << game.board
+    a.flatten!
     a.delete('X')
     a.delete('O')
     square = a.sample.to_i
@@ -25,9 +27,9 @@ class TicTacToeBoard < ActiveRecord::Base
     # binding.pry
     game.board = self.board_update_x(game, user_square)
     game.p1_squares << user_square
-    # comp_square = self.computer_move(game)
-    # game.board = self.board_update_o(game, comp_square)
-    # game.p2_squares << comp_square
+    comp_square = self.computer_move(game)
+    game.board = self.board_update_o(game, comp_square)
+    game.p2_squares << comp_square
     game
   end
 
