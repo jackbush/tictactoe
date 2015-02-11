@@ -9,5 +9,7 @@ class Player < ActiveRecord::Base
   def admin?
     self.role == 'admin'
   end
+
+  # mount_uploader :avatar, AvatarUploader
   
 end

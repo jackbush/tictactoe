@@ -1,5 +1,8 @@
 class TicTacToeBoardsController < ApplicationController
 
+  before_action :authenticate_player!
+  authorize_resource
+
   def index
     @game = TicTacToeBoard.new()
   end

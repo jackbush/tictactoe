@@ -5,6 +5,8 @@
 <h4><%= @game.instructions %></h4>
 
 <div class="page-nav">
+  <% if can? :edit, @category %>
+    <%= link_to('EDIT', edit_game_path) %>
+  <% end %>
   <%= link_to('BACK', games_path) %>
-  <%= link_to('EDIT', edit_game_path) %>
 </div>

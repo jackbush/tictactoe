@@ -15,6 +15,13 @@
       <ul class="nav-links">
         <li class="nav-links-item"><%= link_to('ALL GAMES', games_path) %></li>
         <li class="nav-links-item"><%= link_to('LEADERBOARD', leaderboard_path) %></li>
+        <% if player_signed_in? %>
+          <li class="nav-links-item"><%= link_to('LOGOUT', destroy_player_session_path, :method => :delete) %></li>
+          <li class="nav-links-item"><%= link_to('PROFILE', edit_player_registration_path) %></li>
+        <% else %>
+          <li class="nav-links-item"><%= link_to('LOGIN', new_player_session_path)  %></li>
+          <li class="nav-links-item"><%= link_to('REGISTER', new_player_registration_path)  %></li>
+        <% end %>
       </ul>
     </nav>
     <%= yield %>
