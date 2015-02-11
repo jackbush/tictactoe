@@ -24,11 +24,17 @@ class TicTacToeBoardsController < ApplicationController
     square = params[:commit].to_i
     game = TicTacToeBoard.play(game, square)
     game.save
-    redirect_to edit_tic_tac_toe_board_path(game)
+
+    if game.finished == true
+      redirect_to tic_tac_toe_board_path(game)
+    else
+      redirect_to edit_tic_tac_toe_board_path(game)
+    end
+
   end
 
   def show
-    @board = TicTacToeBoard.find(params[:id])
+    @game = TicTacToeBoard.find(params[:id])
   end
   
 end

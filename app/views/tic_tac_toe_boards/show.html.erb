@@ -1,5 +1,13 @@
 <h2>Game <%= @game.id %></h2>
 
-<h3>Winner</h3>
-
-<h3>Loser</h3>
+<div class="ttt-board">
+  <% @game.board.each do |square| %>
+    <% if square == 'x' %>
+      <div class="ttt-square"><h1>x</h1></div>
+    <% elsif square == 'o' %>
+      <div class="ttt-square"><h1>o</h1></div>
+    <% else %>
+      <div class="ttt-square"></div>
+    <% end %>
+  <% end %>
+</div>
