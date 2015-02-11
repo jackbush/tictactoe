@@ -10,9 +10,9 @@ Game.delete_all
 TicTacToeBoard.delete_all
 Player.delete_all
 
-g1 = Game.create(name: "Tic Tac Toe", instructions: "on a 3x3 grid, get three symbols in a row.")
+Game.create(name: "Tic Tac Toe", instructions: "On a 3x3 grid, claim three squares in a row.")
 
-b1 = TicTacToeBoard.create(game_id: g1.id)
-
-p1 = Player.create(username: "test1")
-p2 = Player.create(username: "test2")
+Player.create(username: "test1", games_played: 43, games_won: 14)
+Player.create(username: "test2", games_played: 3, games_won: 1)
+Player.create(username: "test3", games_played: 12, games_won: 11)
+Player.create(username: "test4", games_played: 67, games_won: 54)
