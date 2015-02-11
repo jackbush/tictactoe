@@ -91,3 +91,14 @@ p {
   padding: 0;
   color: black;
 }
+.150px-profile-image {
+  width:150px;
+  height:150px;
+  padding:0;
+  vertical-align:middle;
+}
+.profile-stats {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: middle;
+}
