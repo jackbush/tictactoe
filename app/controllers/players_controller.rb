@@ -6,5 +6,9 @@ class PlayersController < ApplicationController
   def leaderboard
     @lead_players = Player.all.order('games_won DESC')
   end
+
+  def show
+    @player = Player.find(params[:id])
+  end
   
 end

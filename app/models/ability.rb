@@ -12,6 +12,7 @@ class Ability
       end
 
       can [:index, :show, :new, :create, :edit, :update], [TicTacToeBoard]
+      can [:leaderboard, :show], [Player]
       can [:index, :show], [Game]
     
     # The first argument to `can` is the action you are giving the user

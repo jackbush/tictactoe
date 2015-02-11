@@ -1,7 +1,8 @@
 class TicTacToeBoard < ActiveRecord::Base
 
   belongs_to :game
-  # has_many :players
+  belongs_to :a_player, :class_name => 'Player', :foreign_key => 'player_id_a'
+  belongs_to :b_player, :class_name => 'Player', :foreign_key => 'player_id_a'
 
   @winning_combinations = [['0','1','2'],['3','4','5'],['6','7','8'],['0','3','6'],['1','4','7'],['2','5','8'],['0','4','8'],['2','4','6']]
 

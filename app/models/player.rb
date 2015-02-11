@@ -4,7 +4,7 @@ class Player < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # has_many :tic_tac_toe_boards
+  has_many :tic_tac_toe_boards
 
   def admin?
     self.role == 'admin'
