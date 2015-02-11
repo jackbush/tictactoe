@@ -70,16 +70,16 @@ p {
 }
 .ttt-board {
   margin: 0 auto;
-  width: 630px;
-  height: 630px;
+  width: 330px;
+  height: 330px;
   background: black;
   z-index: 0;
 }
 .ttt-square {
-  padding: 100px;
+  padding: 50px;
   float: left;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 5px;
   border: 0;
   background: white;
