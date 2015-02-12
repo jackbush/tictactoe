@@ -10,16 +10,16 @@
 <body>
   <div class="site-header">
     <div class="nav">
-      <h1><%= link_to('TicTacToe', root_path) %></h1>
+      <h1>TicTacToe</h1>
       <ul class="nav-links">
-        <li class="nav-links-item"><%= link_to('ALL GAMES', games_path) %></li>
+        <li class="nav-links-item"><%= link_to('NEW GAME', root_path) %></li>
         <li class="nav-links-item"><%= link_to('LEADERS', leaderboard_path) %></li>
         <% if player_signed_in? %>
+          <li class="nav-links-item"><%= link_to('ACCOUNT', edit_player_registration_path) %></li>
           <li class="nav-links-item"><%= link_to('LOGOUT', destroy_player_session_path, :method => :delete) %></li>
-          <li class="nav-links-item"><%= link_to('PROFILE', edit_player_registration_path) %></li>
         <% else %>
-          <li class="nav-links-item"><%= link_to('LOGIN', new_player_session_path)  %></li>
           <li class="nav-links-item"><%= link_to('REGISTER', new_player_registration_path)  %></li>
+          <li class="nav-links-item"><%= link_to('LOGIN', new_player_session_path)  %></li>
         <% end %>
       </ul>
     </div>
