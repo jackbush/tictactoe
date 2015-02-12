@@ -2,5 +2,10 @@
 <h3>Play the computer below, or sign in to play for points against other users.</h3>
 
 <%= form_for(@game) do |f| %>
-  <%= f.submit %>
+  <%= f.submit "EASY", class: "board-initialize" %>
+<% end %>
+
+<%= form_for(@game) do |f| %>
+  <%= f.hidden_field :service, value: "test" %>
+  <%= f.submit "how about this", class: "board-initialize" %>
 <% end %>
