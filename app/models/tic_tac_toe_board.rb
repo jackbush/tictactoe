@@ -17,10 +17,16 @@ class TicTacToeBoard < ActiveRecord::Base
     result
   end
 
-  def self.near_wins(squares)
-    paths = Array.new
+  def self.near_wins(player_squares, opponent_squares)
+    available_wins = Array.new
     @winning_combinations.each do |win|
-      paths << (win - squares)
+      if (win - opponent_squares).size == 3
+        available_wins << win
+      end
+    end
+    paths = Array.new
+    available_wins.each do |win|
+      paths << (win - player_squares)
     end
     moves = Array.new
     paths.each do |path|
@@ -28,6 +34,7 @@ class TicTacToeBoard < ActiveRecord::Base
         moves << path.first.to_i
       end
     end
+    binding.pry
     moves
   end
 
@@ -35,11 +42,10 @@ class TicTacToeBoard < ActiveRecord::Base
     # self.available_squares(board).sample.to_i
     available = self.available_squares(board)
     available_corners = @corners - opponent_squares
-    # binding.pry
     if computer_squares.empty? && available_corners.size < 4
       return 4
-    elsif self.near_wins(computer_squares).size > 0
-      return self.near_wins(computer_squares).sample
+    elsif self.near_wins(computer_squares, opponent_squares).size > 0
+      return self.near_wins(computer_squares, opponent_squares).sample
     elsif available_corners.size > 0
       return available_corners.sample.to_i
     else
