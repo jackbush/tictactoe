@@ -14,5 +14,13 @@ class Player < ActiveRecord::Base
   def admin?
     self.role == 'admin'
   end
+
+  def self.stats_update(player, squares)
+    player.games_played += 1
+      if squares.include? 'w'
+        player.games_won += 1
+      end
+    player.save
+  end
   
 end
