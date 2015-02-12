@@ -10,6 +10,6 @@ class Player < ActiveRecord::Base
     self.role == 'admin'
   end
 
-  # mount_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
   
 end

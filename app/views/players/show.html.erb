@@ -1,6 +1,10 @@
 <div class="profile">
   <div class="profile-image">
-    <%= image_tag(@player.avatar.150px.url)%>
+    <% if @player.avatar %>
+      <%= image_tag(@player.avatar.small.url)%>
+    <% else %>
+      <%= image_tag(@player.avatar.small.url)%>
+    <% end %>
   </div>
   <div class="profile-stats">
     <h2><%= @player.username %></h2>
@@ -8,3 +12,8 @@
     <h3><%= @player.games_won %> GAMES WON</h3>
   </div>
 </div>
+
+<%= f.label :recipe_image %>
+<%= f.file_field :recipe_image %>
+<%= f.label :remote_recipe_image_url, "Or use a URL"%>
+<%= f.text_field :remote_recipe_image_url%>
