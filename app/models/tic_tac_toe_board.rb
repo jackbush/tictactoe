@@ -34,23 +34,32 @@ class TicTacToeBoard < ActiveRecord::Base
         moves << path.first.to_i
       end
     end
-    binding.pry
     moves
   end
 
   def self.computer_move(board, computer_squares, opponent_squares)
-    # self.available_squares(board).sample.to_i
     available = self.available_squares(board)
     available_corners = @corners - opponent_squares
+    #if user starts in a corner, take center
     if computer_squares.empty? && available_corners.size < 4
       return 4
+    #if computer is one move from winning, make the move
     elsif self.near_wins(computer_squares, opponent_squares).size > 0
       return self.near_wins(computer_squares, opponent_squares).sample
+    #if user is one move from winning, take the square they need
+    elsif self.near_wins(opponent_squares, computer_squares).size > 0
+      return self.near_wins(opponent_squares, computer_squares).sample
+    #if nobody is about to win, take a corner if there's one left
     elsif available_corners.size > 0
       return available_corners.sample.to_i
+    #if nobody's about to win and there are no corners, do anywhere
     else
       return available.sample.to_i
     end
+  end
+
+  def self.computer_move_random(board)
+    self.available_squares(board).sample.to_i
   end
 
   def self.board_update_x(game, square)
