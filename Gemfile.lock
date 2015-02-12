@@ -154,6 +154,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    gravtastic (3.2.6)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -305,6 +306,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   fog
+  gravtastic
   jbuilder (~> 2.0)
   jquery-rails
   pg

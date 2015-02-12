@@ -35,6 +35,10 @@ h1 a {
 h1 a:hover {
   text-decoration: none;
 }
+.scrollable {
+  height: 450px;
+  overflow: auto;
+}
 .site-header {
   position: fixed;
   width: 100%;
@@ -96,12 +100,13 @@ h1 a:hover {
   color: black;
 }
 .profile {
-  height: 150px;
+  height: 120px;
+  margin: 10px;
   background: white;
 }
 .profile-image {
-  width:150px;
-  height:150px;
+  width:120px;
+  height:120px;
   float:left;
   padding:0;
   vertical-align:middle;
@@ -111,7 +116,7 @@ h1 a:hover {
   border-radius:100%;
 }
 .profile-stats {
-  height: 150px;
+  height: 120px;
   float:left;
   padding: 10px;
   vertical-align: middle;
