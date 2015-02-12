@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  before_action :authenticate_player!
+  before_action :authenticate_player!, except: [:index, :show]
   authorize_resource
 
   def index
