@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   devise_for :players
 
-  resources :games
+  # resources :games
   
   resources :tic_tac_toe_boards
   
