@@ -1,9 +1,18 @@
-<h3>Choose a difficulty level to get playing.</h3>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
+<div class="ttt-square"></div>
 
-<%= form_for(@game) do |f| %>
-  <%= f.submit "EASY", class: "board-initialize" %>
-<% end %>
-
-<%= form_for(@game) do |f| %>
-  <%= f.submit "HARD", class: "board-initialize" %>
-<% end %>
+<div class="board-initialize">
+  <%= form_for(@game) do |f| %>
+    <%= f.submit "EASY", class: "board-initialize-button" %>
+  <% end %>
+  <%= form_for(@game) do |f| %>
+    <%= f.submit "HARD", class: "board-initialize-button" %>
+  <% end %>
+</div>
