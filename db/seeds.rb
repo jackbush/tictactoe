@@ -9,3 +9,18 @@
 Game.delete_all
 TicTacToeBoard.delete_all
 Player.delete_all
+
+admin = Player.new
+admin.username = 'jack'
+admin.email = 'bush.jack@gmail.com'
+admin.password = 'password'
+admin.password_confirmation = 'password'
+admin.role = 'admin'
+admin.save!
+
+computer = Player.new
+computer.username = 'computer'
+computer.email = 'jackscomputer000@gmail.com'
+computer.password = 'password'
+computer.password_confirmation = 'password'
+computer.save!
