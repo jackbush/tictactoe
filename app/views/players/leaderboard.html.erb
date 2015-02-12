@@ -1,7 +1,10 @@
 <h2>Leaderboard</h2>
 
-<ol>
+<table>
   <% @lead_players.each do |player| %>
-  <li><%= player.username %> (<%= player.games_won %> wins)</li>
+  <tr>
+    <td><strong><%= player.games_won %></strong></td>
+    <td><%= link_to(player.username, players_path(player)) %></td>
+  </tr>
   <% end %>
-</ol>
+</table)

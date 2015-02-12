@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :players
+  get '/players/:id', to: 'players#show', as: 'players'
 
   # resources :games
   
