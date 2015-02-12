@@ -6,6 +6,8 @@ class TicTacToeBoard < ActiveRecord::Base
 
   @winning_combinations = [['0','1','2'],['3','4','5'],['6','7','8'],['0','3','6'],['1','4','7'],['2','5','8'],['0','4','8'],['2','4','6']]
 
+  @corners = ['0', '2', '6', '8']
+
   def self.available_squares(board)
     result = Array.new
     result << board
@@ -15,8 +17,34 @@ class TicTacToeBoard < ActiveRecord::Base
     result
   end
 
-  def self.computer_move(board)
-    self.available_squares(board).sample.to_i
+  def self.near_wins(squares)
+    paths = Array.new
+    @winning_combinations.each do |win|
+      paths << (win - squares)
+    end
+    moves = Array.new
+    paths.each do |path|
+      if path.size == 1
+        moves << path.first.to_i
+      end
+    end
+    moves
+  end
+
+  def self.computer_move(board, computer_squares, opponent_squares)
+    # self.available_squares(board).sample.to_i
+    available = self.available_squares(board)
+    available_corners = @corners - opponent_squares
+    # binding.pry
+    if computer_squares.empty? && available_corners.size < 4
+      return 4
+    elsif self.near_wins(computer_squares).size > 0
+      return self.near_wins(computer_squares).sample
+    elsif available_corners.size > 0
+      return available_corners.sample.to_i
+    else
+      return available.sample.to_i
+    end
   end
 
   def self.board_update_x(game, square)
@@ -50,7 +78,7 @@ class TicTacToeBoard < ActiveRecord::Base
     game.finished = self.check_win(game.p1_squares) || self.check_draw(game.board)
     return game if game.finished == true
     # if p2_id == nil
-      comp_square = self.computer_move(game.board)
+      comp_square = self.computer_move(game.board, game.p2_squares, game.p1_squares)
       game.board = self.board_update_o(game, comp_square)
       game.p2_squares << comp_square.to_s
     # else
