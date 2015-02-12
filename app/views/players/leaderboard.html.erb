@@ -1,19 +1,16 @@
 <h2>Leaderboard</h2>
-
-<div class="scrollable">
-  <% @lead_players.each do |player| %>
-    <div class="profile">
-      <div class="profile-image">
-        <% if player.avatar %>
-          <%= image_tag(player.gravatar_url)%>
-        <% else %>
-          <%= image_tag("default image")%>
-        <% end %>
-      </div>
-      <div class="profile-stats">
-        <h2><%= player.username %></h2>
-        <h3><%= player.games_played %> GAMES PLAYED | <%= player.games_won %> GAMES WON</h3> 
-      </div>
+<% @lead_players.each do |player| %>
+  <div class="profile">
+    <div class="profile-image">
+      <% if player.avatar %>
+        <%= image_tag(player.gravatar_url)%>
+      <% else %>
+        <%= image_tag("default image")%>
+      <% end %>
     </div>
-  <% end %>
-</div>
+    <div class="profile-stats">
+      <h2><%= player.username.capitalize %></h2>
+      <h3><%= player.games_played %> GAMES PLAYED | <%= player.games_won %> GAMES WON</h3> 
+    </div>
+  </div>
+<% end %>

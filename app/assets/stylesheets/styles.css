@@ -25,20 +25,6 @@ h3 {
   color: #ccc;
   font-weight: 300;
 }
-p {
-  color: black;
-}
-h1 a {
-  text-decoration: none;
-  color: rgb(32, 65, 86);
-}
-h1 a:hover {
-  text-decoration: none;
-}
-.scrollable {
-  height: 450px;
-  overflow: auto;
-}
 .site-header {
   position: fixed;
   width: 100%;
@@ -69,35 +55,51 @@ h1 a:hover {
 .nav-links-item a {
   text-decoration: none;
 }
-.main-container {
+.aside {
+  position: fixed;
+  display:none;
+  width: 300px;
+  height: 60px;
+  top: 80px;
+  right: 20px;
+  padding: 0px;
+  background: rgba(255,255,255,0.8);
+}
+.main-content {
+  height: 600px;
+  width: 600px;
+  overflow: auto;
   background: #fff;
-  width: 640px;
   margin: 0 auto;
   margin-top: 80px;
-  padding: 20px;
+  padding: 12px;
 }
 .ttt-board {
-  margin: 0 auto;
-  width: 330px;
-  height: 330px;
-  background: black;
+  margin:auto;
+  width: 580px;
+  height: 580px;
+  background: white;
   z-index: 0;
 }
 .ttt-square {
   padding: 50px;
   float: left;
-  width: 100px;
-  height: 100px;
-  margin: 5px;
+  width: 180px;
+  height: 180px;
+  margin: 6px;
   border: 0;
-  background: white;
+  background: #333;
   z-index: 10;
-  color:white;
+  color: #333;
+}
+.active:hover {
+  background: red;
+  color: red;
 }
 .ttt-square h1 {
   margin: 0;
   padding: 0;
-  color: black;
+  color: white;
 }
 .profile {
   height: 120px;

@@ -9,5 +9,3 @@
 Game.delete_all
 TicTacToeBoard.delete_all
 Player.delete_all
-
-Game.create(name: "Tic Tac Toe", instructions: "On a 3x3 grid, claim three squares in a row.")

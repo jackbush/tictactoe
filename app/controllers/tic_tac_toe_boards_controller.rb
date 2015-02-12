@@ -21,6 +21,7 @@ class TicTacToeBoardsController < ApplicationController
 
   def edit
     @game = TicTacToeBoard.find(params[:id])
+    @a_player_avatar = @game.a_player.gravatar_url
   end
 
   def update
@@ -39,6 +40,7 @@ class TicTacToeBoardsController < ApplicationController
 
   def show
     @game = TicTacToeBoard.find(params[:id])
+    @a_player_avatar = @game.a_player.gravatar_url
   end
   
 end

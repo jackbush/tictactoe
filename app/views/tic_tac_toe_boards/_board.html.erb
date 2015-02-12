@@ -1,13 +1,13 @@
 <div class="ttt-board">
   <% @game.board.each do |square| %>
     <% if square == 'x' %>
-      <div class="ttt-square"><h1>x</h1></div>
+      <div class="ttt-square active"><h1>x</h1></div>
     <% elsif square == 'o' %>
-      <div class="ttt-square"><h1>o</h1></div>
+      <div class="ttt-square active"><h1>o</h1></div>
     <% else %>
       <%= form_for(@game) do |f| %>
         <%= f.hidden_field :service, value: square %>
-        <%= f.submit square, class: "ttt-square" %>
+        <%= f.submit square, class: "ttt-square active" %>
       <% end %>
     <% end %>
   <% end %>
