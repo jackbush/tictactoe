@@ -23,6 +23,7 @@ h2 {
 }
 h3 {
   color: #ccc;
+  font-weight: 300;
 }
 p {
   color: black;
@@ -107,6 +108,7 @@ h1 a:hover {
 }
 .profile-image img {
   margin: 0 auto;
+  border-radius:100%;
 }
 .profile-stats {
   height: 150px;

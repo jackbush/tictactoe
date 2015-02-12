@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :players, :controllers => { registrations: 'registrations' }
   get '/players/:id', to: 'players#show', as: 'players'

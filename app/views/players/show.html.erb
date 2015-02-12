@@ -3,13 +3,12 @@
     <% if @player.avatar %>
       <%= image_tag(@player.avatar.small.url)%>
     <% else %>
-      <!-- default image -->
+      <%= image_tag("default image")%>
     <% end %>
   </div>
   <div class="profile-stats">
-    <h2><%= @player.username.capitalize %></h2>
-    <h3><%= @player.games_played %> GAMES PLAYED</h3>
-    <h3><%= @player.games_won %> GAMES WON</h3>
+    <h2><%= @player.username %></h2>
+    <h3><%= @player.games_played %> GAMES PLAYED | <%= @player.games_won %> GAMES WON</h3>
     <h3><%= link_to('BACK', leaderboard_path) %></h3>
   </div>
 </div>

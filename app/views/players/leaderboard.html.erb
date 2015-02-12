@@ -1,10 +1,17 @@
 <h2>Leaderboard</h2>
 
-<table>
-  <% @lead_players.each do |player| %>
-  <tr>
-    <td><strong><%= player.games_won %></strong></td>
-    <td><%= link_to(player.username, players_path(player)) %></td>
-  </tr>
-  <% end %>
-</table)
+<% @lead_players.each do |player| %>
+  <div class="profile">
+    <div class="profile-image">
+      <% if player.avatar %>
+        <%= image_tag(player.avatar.small.url)%>
+      <% else %>
+        <%= image_tag("default image")%>
+      <% end %>
+    </div>
+    <div class="profile-stats">
+      <h2><%= player.username %></h2>
+      <h3><%= player.games_played %> GAMES PLAYED | <%= player.games_won %> GAMES WON</h3> 
+    </div>
+  </div>
+<% end %>

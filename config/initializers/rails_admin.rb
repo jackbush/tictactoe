@@ -4,7 +4,7 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
-    warden.authenticate! scope: :player
+    redirect_to main_app.root_path unless current_player.try(:admin?)
   end
   config.current_user_method(&:current_player)
 
