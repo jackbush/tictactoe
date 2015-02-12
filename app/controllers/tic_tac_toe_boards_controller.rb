@@ -31,6 +31,22 @@ class TicTacToeBoardsController < ApplicationController
     game.save
 
     if game.finished == true
+
+      # TicTacToeBoard.status_update(game.a_player, game.p1_squares)
+      # TicTacToeBoard.status_update(game.b_player, game.p2_squares)
+
+      game.a_player.games_played += 1
+      if game.p1_squares.include? 'w'
+        game.a_player.games_won += 1
+      end
+      game.a_player.save
+
+      game.b_player.games_played += 1
+      if game.p2_squares.include? 'w'
+        game.b_player.games_won += 1
+      end
+      game.b_player.save
+
       redirect_to tic_tac_toe_board_path(game)
     else
       redirect_to edit_tic_tac_toe_board_path(game)

@@ -34,6 +34,9 @@ class TicTacToeBoard < ActiveRecord::Base
     @winning_combinations.each do |win|
       result << (win - player_squares).empty?
     end
+    if result.include? true
+      player_squares << 'w'
+    end
     result.include? true
   end
 
@@ -41,9 +44,9 @@ class TicTacToeBoard < ActiveRecord::Base
     self.available_squares(board).empty?
   end
 
-  def self.play(game, user_square)
-    game.board = self.board_update_x(game, user_square)
-    game.p1_squares << user_square.to_s
+  def self.play(game, player_square)
+    game.board = self.board_update_x(game, player_square)
+    game.p1_squares << player_square.to_s
     game.finished = self.check_win(game.p1_squares) || self.check_draw(game.board)
     return game if game.finished == true
     # if p2_id == nil
@@ -55,6 +58,14 @@ class TicTacToeBoard < ActiveRecord::Base
     # end
     game.finished = self.check_win(game.p2_squares) || self.check_draw(game.board)
     game
+  end
+
+  def self.stats_update(player, squares)
+    player.games_played += 1
+      if squares.include? 'w'
+        player.games_won += 1
+      end
+    player.save
   end
 
 end
