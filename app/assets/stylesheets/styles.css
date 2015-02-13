@@ -138,6 +138,9 @@ input.ttt-square {
   vertical-align: center;
   line-height: 107%;
 }
+.win {
+  background: #74526C;
+}
 .board-initialize {
   z-index: 20;
   position: absolute;

@@ -1,11 +1,37 @@
-<div class="ttt-board">
-  <% @game.board.each do |square| %>
-    <% if square == 'x' %>
-      <div class="ttt-square"><span class="board-marker">x</span class="board-marker"></div>
-    <% elsif square == 'o' %>
-      <div class="ttt-square"><span class="board-marker">o</span class="board-marker"></div>
-    <% else %>
-      <div class="ttt-square"></div>
+<% if @game.p1_squares.include? 'w' %>
+  <div class="ttt-board">
+    <% @game.board.each do |square| %>
+      <% if square == 'x' %>
+        <div class="ttt-square win"><span class="board-marker">x</span></div>
+      <% elsif square == 'o' %>
+        <div class="ttt-square"><span class="board-marker">o</span></div>
+      <% else %>
+        <div class="ttt-square"></div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% elsif @game.p2_squares.include? 'w'  %>
+  <div class="ttt-board">
+    <% @game.board.each do |square| %>
+      <% if square == 'x' %>
+        <div class="ttt-square"><span class="board-marker">x</span></div>
+      <% elsif square == 'o' %>
+        <div class="ttt-square win"><span class="board-marker">o</span></div>
+      <% else %>
+        <div class="ttt-square"></div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="ttt-board">
+    <% @game.board.each do |square| %>
+      <% if square == 'x' %>
+        <div class="ttt-square"><span class="board-marker">x</span></div>
+      <% elsif square == 'o' %>
+        <div class="ttt-square"><span class="board-marker">o</span></div>
+      <% else %>
+        <div class="ttt-square"></div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
