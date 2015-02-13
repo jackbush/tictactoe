@@ -98,7 +98,7 @@ h3 {
   z-index: 0;
   margin-bottom: -4px;
 }
-input[type='submit'].ttt-square {
+input.ttt-square {
   float: left;
   width: 180px;
   height: 180px;

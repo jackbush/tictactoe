@@ -43,6 +43,7 @@ class TicTacToeBoardsController < ApplicationController
 
   def show
     @game = TicTacToeBoard.find(params[:id])
+    TicTacToeBoard.mark_win(@game)
   end
   
 end
