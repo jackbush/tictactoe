@@ -58,11 +58,8 @@ class TicTacToeBoard < ActiveRecord::Base
       return self.near_wins(opponent_squares, computer_squares).sample
     #if opponent has diagonal corners
     elsif (opponent_squares - @diagonal1).empty? || (opponent_squares - @diagonal2).empty?
-      if computer_squares.include? '2'
-        return 3
-      else
-        return 1
-      end
+      possible = (['1','3','5','7'] - opponent_squares)
+      return possible.sample.to_i
     #if nobody is about to win, take a corner if there's one left
     elsif available_corners.size > 0
       return available_corners.sample.to_i
