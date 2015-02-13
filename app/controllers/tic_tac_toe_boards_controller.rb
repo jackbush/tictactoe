@@ -13,6 +13,7 @@ class TicTacToeBoardsController < ApplicationController
 
   def create
     game = TicTacToeBoard.create
+    game.difficulty = params[:commit]
     game.board << 0 << 1 << 2 << 3 << 4 << 5 << 6 << 7 << 8
     game.a_player = current_player
     game.save

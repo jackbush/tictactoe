@@ -120,7 +120,13 @@ class TicTacToeBoard < ActiveRecord::Base
     game.finished = self.check_win(game.p1_squares) || self.check_draw(game.board)
     return game if game.finished == true
 
-    comp_square = self.computer_move_hard(game.board, game.p2_squares, game.p1_squares)
+    if game.difficulty == 'EASY'
+      comp_square = self.computer_move_easy(game.board)
+    elsif game.difficulty == 'MEDIUM'
+      comp_square = self.computer_move_medium(game.board, game.p2_squares, game.p1_squares)
+    else
+      comp_square = self.computer_move_hard(game.board, game.p2_squares, game.p1_squares)
+    end
 
     game.board = self.board_update(game, comp_square, 'o')
     game.p2_squares << comp_square.to_s
