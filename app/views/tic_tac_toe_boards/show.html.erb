@@ -1,9 +1,9 @@
 <div class="ttt-board">
   <% @game.board.each do |square| %>
     <% if square == 'x' %>
-      <div class="ttt-square"><h1>x</h1></div>
+      <div class="ttt-square"><span class="board-marker">x</span class="board-marker"></div>
     <% elsif square == 'o' %>
-      <div class="ttt-square"><h1>o</h1></div>
+      <div class="ttt-square"><span class="board-marker">o</span class="board-marker"></div>
     <% else %>
       <div class="ttt-square"></div>
     <% end %>

@@ -3,7 +3,7 @@
   font-family: 'Oxygen', Helvetica, Arial, sans-serif
 }
 body {
-  background: #eee;
+  background: #9DB5B2;
 }
 a {
   color: #000;
@@ -24,6 +24,15 @@ h2 {
 h3 {
   color: #ccc;
   font-weight: 300;
+}
+.board-marker {
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 100px;
+  margin-top: -7px;
+  margin-left: -2px;
 }
 .site-header {
   position: fixed;
@@ -50,7 +59,7 @@ h3 {
   font-size: 12px;
   padding: 3px;
   margin: 2px;
-  border: 1px solid rgb(57, 209, 180);
+  border: 1px solid #22223B;
 }
 .nav-links-item a {
   text-decoration: none;
@@ -89,13 +98,15 @@ h3 {
   height: 180px;
   margin: 6px;
   border: 0;
-  background: #333;
+  background: #3B413C;
   z-index: 10;
-  color: #333;
+  color: #3B413C;
+  text-align: center;
+  transition: 0.2s;
 }
 .active:hover {
-  background: red;
-  color: red;
+  background: #22223B;
+  color: #22223B;
 }
 .ttt-square h1 {
   margin: 0;
@@ -115,14 +126,14 @@ h3 {
 .board-initialize-button {
   width: 220px;
   height: 50px;
-  background: red;
+  background: #74526C;
   color: white;
   border: none;
   margin: 20px;
 }
 .profile {
   height: 120px;
-  margin: 10px;
+  margin: 20px;
   background: white;
 }
 .profile-image {

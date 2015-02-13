@@ -1,9 +1,9 @@
 <div class="ttt-board">
   <% @game.board.each do |square| %>
     <% if square == 'x' %>
-      <div class="ttt-square active"><h1>x</h1></div>
+      <div class="ttt-square active"><span class="board-marker">x</span class="board-marker"></div>
     <% elsif square == 'o' %>
-      <div class="ttt-square active"><h1>o</h1></div>
+      <div class="ttt-square active"><span class="board-marker">o</span class="board-marker"></div>
     <% else %>
       <%= form_for(@game) do |f| %>
         <%= f.hidden_field :service, value: square %>
