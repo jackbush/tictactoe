@@ -18,6 +18,13 @@ admin.password_confirmation = 'password'
 admin.role = 'admin'
 admin.save!
 
+generic = Player.new
+generic.username = 'agnes'
+generic.email = 'agnes@app.com'
+generic.password = 'password'r
+generic.password_confirmation = 'password'
+generic.save!
+
 computer = Player.new
 computer.username = 'computer'
 computer.email = 'jackscomputer000@gmail.com'

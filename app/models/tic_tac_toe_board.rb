@@ -44,7 +44,7 @@ class TicTacToeBoard < ActiveRecord::Base
     moves
   end
 
-  def self.computer_move_impossible(board, computer_squares, opponent_squares)
+  def self.computer_move_hard(board, computer_squares, opponent_squares)
     available = self.available_squares(board)
     available_corners = @corners - opponent_squares
     #if user starts in a corner, take center
@@ -69,7 +69,7 @@ class TicTacToeBoard < ActiveRecord::Base
     end
   end
 
-  def self.computer_move_hard(board, computer_squares, opponent_squares)
+  def self.computer_move_medium(board, computer_squares, opponent_squares)
     available = self.available_squares(board)
     available_corners = @corners - opponent_squares
     #if user starts in a corner, take center
@@ -120,7 +120,7 @@ class TicTacToeBoard < ActiveRecord::Base
     game.finished = self.check_win(game.p1_squares) || self.check_draw(game.board)
     return game if game.finished == true
 
-    comp_square = self.computer_move_impossible(game.board, game.p2_squares, game.p1_squares)
+    comp_square = self.computer_move_hard(game.board, game.p2_squares, game.p1_squares)
 
     game.board = self.board_update(game, comp_square, 'o')
     game.p2_squares << comp_square.to_s

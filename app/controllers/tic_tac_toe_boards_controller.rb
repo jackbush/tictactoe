@@ -21,7 +21,6 @@ class TicTacToeBoardsController < ApplicationController
 
   def edit
     @game = TicTacToeBoard.find(params[:id])
-    @a_player_avatar = @game.a_player.gravatar_url
   end
 
   def update
@@ -31,7 +30,9 @@ class TicTacToeBoardsController < ApplicationController
     game.save
 
     if game.finished == true
-      Player.stats_update(game.a_player, game.p1_squares)
+      if game.a_player
+        Player.stats_update(game.a_player, game.p1_squares)
+      end
       Player.stats_update(game.b_player, game.p2_squares)
       redirect_to tic_tac_toe_board_path(game)
     else
@@ -42,7 +43,6 @@ class TicTacToeBoardsController < ApplicationController
 
   def show
     @game = TicTacToeBoard.find(params[:id])
-    @a_player_avatar = @game.a_player.gravatar_url
   end
   
 end
