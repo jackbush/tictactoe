@@ -90,7 +90,7 @@ class TicTacToeBoard < ActiveRecord::Base
     end
   end
 
-  def self.computer_move_easy(board)
+  def self.computer_move_random(board)
     self.available_squares(board).sample.to_i
   end
 
@@ -121,7 +121,7 @@ class TicTacToeBoard < ActiveRecord::Base
     return game if game.finished == true
 
     if game.difficulty == 'EASY'
-      comp_square = self.computer_move_easy(game.board)
+      comp_square = self.computer_move_random(game.board)
     elsif game.difficulty == 'MEDIUM'
       comp_square = self.computer_move_medium(game.board, game.p2_squares, game.p1_squares)
     else
