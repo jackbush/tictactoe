@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Sign up</h2><br><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
   <%= devise_error_messages! %>
@@ -27,8 +27,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "devise-buttons" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
