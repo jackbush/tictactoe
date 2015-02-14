@@ -6,7 +6,7 @@ class Player < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
 
   include Gravtastic
   gravtastic size: 120, default: "identicon"

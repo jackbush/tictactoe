@@ -8,8 +8,6 @@ class TicTacToeBoard < ActiveRecord::Base
   @corners = ['0', '2', '6', '8']
   @diagonal1 = ['0', '8']
   @diagonal2 = ['2', '6']
-  @x = 'x'
-  @o = 'o'
 
   def self.available_squares(board)
     result = Array.new
@@ -132,9 +130,6 @@ class TicTacToeBoard < ActiveRecord::Base
     game.p2_squares << comp_square.to_s
     game.finished = self.check_win(game.p2_squares) || self.check_draw(game.board)
     game
-  end
-
-  def self.mark_win(game)
   end
 
 end

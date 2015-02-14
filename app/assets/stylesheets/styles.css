@@ -1,22 +1,7 @@
+/*defaults*/
 * {
   box-sizing: border-box;
-  font-family: 'Oxygen', Helvetica, Arial, sans-serif
-}
-input {
-  width: 100%;
-  margin-bottom: 20px;
-}
-input[type='checkbox'] {
-  width: 20px;
-}
-input[type='submit'] {
-  float: right;
-  width: 220px;
-  height: 50px;
-  background: #74526C;
-  color: white;
-  border: none;
-  margin: 20px;
+  font-family: 'Oxygen', 'Helvetica', Arial, sans-serif
 }
 body {
   background: #9DB5B2;
@@ -34,13 +19,31 @@ h1 {
   position: fixed;
   font-size: 32px; 
 }
-h2 {
-  display: inline;
-}
 h3 {
   color: #ccc;
   font-weight: 300;
 }
+
+/*forms*/
+input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+input[type='checkbox'] {
+  width: 20px;
+}
+input[type='submit'] {
+  float: right;
+  width: 220px;
+  height: 50px;
+  background: #74526C;
+  color: white;
+  border: none;
+  margin: 20px;
+}
+
+/*nav*/
 .site-header {
   position: fixed;
   width: 100%;
@@ -71,6 +74,8 @@ h3 {
 .nav-links-item a {
   text-decoration: none;
 }
+
+/*main*/
 .aside {
   position: fixed;
   display:none;
@@ -90,6 +95,32 @@ h3 {
   margin-top: 80px;
   padding: 12px;
 }
+
+/*users*/
+.profile {
+  height: 120px;
+  margin: 20px;
+  background: white;
+}
+.profile-image {
+  width:120px;
+  height:120px;
+  float:left;
+  padding:0;
+  vertical-align:middle;
+}
+.profile-image img {
+  margin: 0 auto;
+  border-radius:100%;
+}
+.profile-stats {
+  height: 120px;
+  float:left;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+/*ttt gameplay*/
 .ttt-board {
   margin:auto;
   width: 580px;
@@ -158,26 +189,4 @@ input.ttt-square {
   color: white;
   border: none;
   margin: 20px;
-}
-.profile {
-  height: 120px;
-  margin: 20px;
-  background: white;
-}
-.profile-image {
-  width:120px;
-  height:120px;
-  float:left;
-  padding:0;
-  vertical-align:middle;
-}
-.profile-image img {
-  margin: 0 auto;
-  border-radius:100%;
-}
-.profile-stats {
-  height: 120px;
-  float:left;
-  padding: 10px;
-  vertical-align: middle;
 }

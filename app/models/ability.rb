@@ -7,8 +7,6 @@ class Ability
       player ||= Player.new # guest user (not logged in)
       if player.admin?
         can :manage, :all
-    #   else
-    #     can :read, :all
       end
 
       can [:index, :show, :new, :create, :edit, :update], [TicTacToeBoard]
