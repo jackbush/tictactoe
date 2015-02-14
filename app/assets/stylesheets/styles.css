@@ -41,6 +41,10 @@ input[type='submit'] {
   color: white;
   border: none;
   margin: 20px;
+  transition: 0.2s;
+}
+input[type='submit']:hover {
+  background: #22223B;
 }
 
 /*nav*/
