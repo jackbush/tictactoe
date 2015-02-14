@@ -42,7 +42,7 @@ class TicTacToeBoard < ActiveRecord::Base
     moves
   end
 
-  def self.computer_move_hard(board, computer_squares, opponent_squares)
+  def self.computer_move_clever(board, computer_squares, opponent_squares, difficulty)
     available = self.available_squares(board)
     available_corners = @corners - opponent_squares
     #if user starts in a corner, take center
@@ -54,31 +54,12 @@ class TicTacToeBoard < ActiveRecord::Base
     #if user is one move from winning, take the square they need
     elsif self.near_wins(opponent_squares, computer_squares).size > 0
       return self.near_wins(opponent_squares, computer_squares).sample
-    #if opponent has diagonal corners
-    elsif (opponent_squares - @diagonal1).empty? || (opponent_squares - @diagonal2).empty?
-      possible = (['1','3','5','7'] - opponent_squares)
-      return possible.sample.to_i
-    #if nobody is about to win, take a corner if there's one left
-    elsif available_corners.size > 0
-      return available_corners.sample.to_i
-    #if nobody's about to win and there are no corners, go anywhere
-    else
-      return available.sample.to_i
-    end
-  end
-
-  def self.computer_move_medium(board, computer_squares, opponent_squares)
-    available = self.available_squares(board)
-    available_corners = @corners - opponent_squares
-    #if user starts in a corner, take center
-    if computer_squares.empty? && available_corners.size < 4
-      return 4
-    #if computer is one move from winning, make the move
-    elsif self.near_wins(computer_squares, opponent_squares).size > 0
-      return self.near_wins(computer_squares, opponent_squares).sample
-    #if user is one move from winning, take the square they need
-    elsif self.near_wins(opponent_squares, computer_squares).size > 0
-      return self.near_wins(opponent_squares, computer_squares).sample
+    #if hard, if opponent has diagonal corners
+    elsif difficulty == 'HARD'
+      if (opponent_squares - @diagonal1).empty? || (opponent_squares - @diagonal2).empty?
+        possible = (['1','3','5','7'] - opponent_squares)
+        return possible.sample.to_i
+      end
     #if nobody is about to win, take a corner if there's one left
     elsif available_corners.size > 0
       return available_corners.sample.to_i
@@ -120,10 +101,8 @@ class TicTacToeBoard < ActiveRecord::Base
 
     if game.difficulty == 'EASY'
       comp_square = self.computer_move_random(game.board)
-    elsif game.difficulty == 'MEDIUM'
-      comp_square = self.computer_move_medium(game.board, game.p2_squares, game.p1_squares)
     else
-      comp_square = self.computer_move_hard(game.board, game.p2_squares, game.p1_squares)
+      comp_square = self.computer_move_clever(game.board, game.p2_squares, game.p1_squares, game.difficulty)
     end
 
     game.board = self.board_update(game, comp_square, 'o')
