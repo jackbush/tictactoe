@@ -86,17 +86,16 @@ class TicTacToeBoard < ActiveRecord::Base
       when self.near_wins(opponent_squares, computer_squares).size > 0
         return self.near_wins(opponent_squares, computer_squares).sample
       # if hard, if opponent has diagonal corners
-      when difficulty == 'HARD'
-        if (opponent_squares - @diagonal1).empty? || (opponent_squares - @diagonal2).empty?
+      when difficulty == 'HARD' && ((opponent_squares - @diagonal1).empty? || (opponent_squares - @diagonal2).empty?)
           possible = (['1','3','5','7'] - opponent_squares)
           return possible.sample.to_i
-        end
       # if nobody is about to win, take a corner if there's one left
-      when available_corners.size > 0
-        return available_corners.sample.to_i
-      # if nobody's about to win and there are no corners, go anywhere
       else
-        return self.comp_move_random(board)
+        if available_corners.size > 0
+          available_corners.sample.to_i
+        else
+          self.comp_move_random(board)
+        end
     end
   end
 
