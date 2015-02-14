@@ -74,7 +74,7 @@ class TicTacToeBoard < ActiveRecord::Base
 
   def self.comp_move_clever(board, computer_squares, opponent_squares, difficulty)
     available = self.available_squares(board)
-    available_corners = @corners - opponent_squares
+    available_corners = (@corners - opponent_squares) - computer_squares
     case
       # if user starts in a corner, take center
       when computer_squares.empty? && available_corners.size < 4
