@@ -44,6 +44,10 @@ class TicTacToeBoard < ActiveRecord::Base
     result
   end
 
+  def self.comp_move_random(board)
+    self.available_squares(board).sample.to_i
+  end
+
   def self.near_wins(player_squares, opponent_squares)
     #select winning combinations that do not include an opponent square
     available_wins = Array.new
@@ -68,11 +72,7 @@ class TicTacToeBoard < ActiveRecord::Base
     moves
   end
 
-  def self.computer_move_random(board)
-    self.available_squares(board).sample.to_i
-  end
-
-  def self.computer_move_clever(board, computer_squares, opponent_squares, difficulty)
+  def self.comp_move_clever(board, computer_squares, opponent_squares, difficulty)
     available = self.available_squares(board)
     available_corners = @corners - opponent_squares
     case
@@ -96,7 +96,7 @@ class TicTacToeBoard < ActiveRecord::Base
         return available_corners.sample.to_i
       # if nobody's about to win and there are no corners, go anywhere
       else
-        return self.computer_move_random(board)
+        return self.comp_move_random(board)
     end
   end
 
@@ -104,9 +104,9 @@ class TicTacToeBoard < ActiveRecord::Base
     self.register_move(game, player_square, game.p1_squares, 'x')    
     return game if game.finished == true
     if game.difficulty == 'EASY'
-      comp_square = self.computer_move_random(game.board)
+      comp_square = self.comp_move_random(game.board)
     else
-      comp_square = self.computer_move_clever(game.board, game.p2_squares, game.p1_squares, game.difficulty)
+      comp_square = self.comp_move_clever(game.board, game.p2_squares, game.p1_squares, game.difficulty)
     end
     self.register_move(game, comp_square, game.p2_squares,'o')
     game
