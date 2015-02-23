@@ -1,0 +1,35 @@
+!!! html
+%html
+%head
+  = favicon_link_tag image_path('favicon.ico')
+  %title TicTacToe
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+  %link href='//fonts.googleapis.com/css?family=Oxygen:700,300' rel='stylesheet' type='text/css'
+  %link href='//fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'
+  %link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'
+%body
+  .site-header
+    .nav
+      %h1 tictactoe
+      %ul.nav-links
+        %li.nav-links-item
+          = link_to('NEW GAME', root_path)
+        %li.nav-links-item
+          = link_to('LEADERS', leaderboard_path)
+        - if player_signed_in?
+          %li.nav-links-item
+            = link_to('ACCOUNT', edit_player_registration_path)
+          %li.nav-links-item
+            = link_to('LOGOUT', destroy_player_session_path, :method => :delete)
+        - else
+          %li.nav-links-item
+            = link_to('REGISTER', new_player_registration_path) 
+          %li.nav-links-item
+            = link_to('LOGIN', new_player_session_path) 
+    .aside.notice.alert
+      %p.notice= notice
+      %p.alert= alert
+    .main-content
+      = yield
