@@ -1,0 +1,17 @@
+.ttt-square
+.ttt-square
+.ttt-square
+.ttt-square
+.ttt-square
+.ttt-square
+.ttt-square
+.ttt-square
+.ttt-square
+
+.board-initialize
+  = form_for(@game) do |f|
+    = f.submit "EASY", class: "board-initialize-button"
+  = form_for(@game) do |f|
+    = f.submit "MEDIUM", class: "board-initialize-button"
+  = form_for(@game) do |f|
+    = f.submit "HARD", class: "board-initialize-button"

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.1.4"
 
+gem 'haml-rails'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'carrierwave', '0.9.0'

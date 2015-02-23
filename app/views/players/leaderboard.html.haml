@@ -1,0 +1,10 @@
+%h2 Leaderboard
+- @lead_players.each do |player|
+  .profile
+    .profile-image
+      = image_tag(player.gravatar_url)
+    .profile-stats
+      %h2= player.username.capitalize
+      %h3
+        = pluralize(player.games_played, 'game')
+        = pluralize(player.games_won, 'win')

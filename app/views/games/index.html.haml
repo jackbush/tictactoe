@@ -1,0 +1,7 @@
+%h2 All Games
+
+- @games.each do |game|
+  %h3
+    = link_to(game.name, game_path(game))
+  %p
+    = game.instructions

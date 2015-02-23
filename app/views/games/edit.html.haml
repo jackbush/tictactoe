@@ -1,0 +1,8 @@
+%h2 Edit
+  = @game.name
+
+= render 'form'
+
+.page-nav
+  = link_to 'CANCEL', games_path
+  = link_to 'DELETE', game_path(@game), method: :delete

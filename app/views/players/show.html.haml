@@ -1,0 +1,14 @@
+.profile
+  .profile-image
+    - if @player.avatar
+      = image_tag(@player.avatar.small.url)
+    - else
+      = image_tag("default image")
+  .profile-stats
+    %h2
+      = @player.username
+    %h3
+      = pluralize(player.games_played, 'game')
+      = pluralize(player.games_won, 'win')
+    %h3
+      = link_to('BACK', leaderboard_path)

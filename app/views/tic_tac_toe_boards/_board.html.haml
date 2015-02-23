@@ -1,0 +1,14 @@
+.ttt-board
+  - @game.board.each do |square|
+    - if square == 'x'
+      .ttt-square
+        %span.board-marker
+          x
+    - elsif square == 'o'
+      .ttt-square
+        %span.board-marker
+          o
+    - else
+      = form_for(@game) do |f|
+        = f.hidden_field :service, value: square
+        = f.submit square, class: "ttt-square active"

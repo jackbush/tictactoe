@@ -1,0 +1,12 @@
+%h2
+  = @game.name
+
+%h3 Instructions:
+
+%h4
+  = @game.instructions
+
+.page-nav
+  - if can? :edit, @category
+    = link_to 'EDIT', edit_game_path
+  = link_to 'BACK', games_path

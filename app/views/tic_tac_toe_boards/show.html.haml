@@ -1,0 +1,10 @@
+.ttt-board
+  - @game.board.each do |square|
+    - if square == 'x'
+      %div{ class: "ttt-square #{if @game.p1_squares.include? 'w' then 'win' else 'fuck' end}" }
+        %span.board-marker x
+    - elsif square == 'o'
+      %div{ class: "ttt-square #{if @game.p2_squares.include? 'w' then 'win' else 'fuck' end}" }
+        %span.board-marker o
+    - else
+      .ttt-square
