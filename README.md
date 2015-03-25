@@ -12,6 +12,7 @@ Created using Ruby 2.1.4, Rails 4.2.0 and PostgreSQL
 
 Download and unzip, then run:
 ```
+$ bundle
 $ rake db:create
 $ rake db:migrate
 $ rake db:seed
