@@ -6,7 +6,7 @@ Created using Ruby 2.1.4, Rails 4.2.0 and PostgreSQL
 
 ### On Heroku:
 
-<https://jb-tictactoe.herokuapp.com/>
+<https://tictactoe.jackbush.co/>
 
 ### To run locally:
 
