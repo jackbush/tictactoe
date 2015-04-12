@@ -1,12 +1,10 @@
-## README
+## TicTacToe
 
 #### A game of tictactoe with easy, medium and hard (unbeatable) difficulties. First project for the Web Development Immersive course at General Assembly.
 
 Created using Ruby 2.1.4, Rails 4.2.0 and PostgreSQL
 
-### On Heroku:
-
-<http://tictactoe.jackbush.co/>
+### [ON HEROKU](http://tictactoe.jackbush.co)
 
 ### To run locally:
 
